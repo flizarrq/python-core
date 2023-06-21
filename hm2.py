@@ -4,14 +4,15 @@
 #
 # 2) протипізувати перше завдання
 
-def notebook():
+from typing import Callable
+def notebook() -> tuple[Callable[[str,None], Callable[[],list[str]]]]:
     todo_list: list[str] = []
 
-    def add_todo(todo: str):
+    def add_todo(todo: str) -> None:
         nonlocal todo_list
         todo_list.append(todo)
 
-    def get_all() -> None:
+    def get_all() -> list[str]:
         nonlocal todo_list
         print(todo_list)
 
